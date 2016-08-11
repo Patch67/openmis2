@@ -12,4 +12,8 @@ urlpatterns = [
     url(r'^(?P<pk>[0-9]+)/update/$', views.UpdateView.as_view(), name='update'),
     # /student/add
     url(r'student/add/$', views.StudentCreate.as_view(), name='student-create'),
+    # /qualification/
+    url(r'qualification/$', views.QualificationIndex.as_view(), name='qualification-index'),
+    # /qualification/add
+    url(r'qualification/add/$', views.QualificationCreate.as_view(), name='qualification-create'),
 ]

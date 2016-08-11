@@ -1,6 +1,6 @@
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Student
+from .models import Student, Qualification
 
 
 class IndexView(generic.ListView):
@@ -25,3 +25,16 @@ class UpdateView(generic.UpdateView):
 class StudentCreate(CreateView):
     model = Student
     fields = ['first_name', 'last_name', 'date_of_birth', 'gender', 'ULN']
+
+
+class QualificationIndex(generic.ListView):
+    template_name = 'qualification/index.html'
+    context_object_name = 'all_qualifications'
+
+    def get_queryset(self):
+        return Qualification.objects.all()
+
+
+class QualificationCreate(CreateView):
+    model = Qualification
+    fields = ['title', 'LAR']
