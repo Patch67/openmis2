@@ -1,0 +1,19 @@
+{% extends 'student/base.html' %}
+{% block title %}{{student}}{% endblock %}
+{% block body %}
+    <h3>{{student}}</h3>
+    {% if error_message %}
+        <p><strong>{{error_message}}</strong></p>
+    {% endif %}
+    <form action="{% url 'student:update' student.id %}" method="post">
+        {% csrf_token %}
+        <label for="first_name{{student.id}}">First name: </label>
+        <input type="text" id="first_name{{student.id}}" name="first_name" value="{{student.first_name}}"/>
+        <br>
+        <label for="last_name{{student.id}}">Last name: </label>
+        <input type="text" id="last_name{{student.id}}" name="last_name" value="{{student.last_name}}"/>
+        <br>
+        <input type="submit" value="Save"/>
+        <input type="reset" value="Cancel"/>
+    </form>
+{% endblock %}

@@ -1,0 +1,12 @@
+<h1>Staff Index</h1>
+{% if all_staff %}
+    <ul>
+        {% for staff in all_staff %}
+        <li>
+            <a href="{% url 'staff:detail' staff.id %}">{{staff}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>There are no staff records to display.</p>
+{% endif %}

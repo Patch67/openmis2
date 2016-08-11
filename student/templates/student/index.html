@@ -1,0 +1,16 @@
+{% extends 'student/base.html' %}
+{% block title %}Student Index{% endblock %}
+{% block body %}
+    <h1>Student Index</h1>
+    {% if all_students %}
+        <ul>
+            {% for student in all_students %}
+            <li>
+                <a href="{% url 'student:detail' student.id %}">{{student}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no student records to display.</p>
+    {% endif %}
+{% endblock %}
